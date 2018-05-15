@@ -4,6 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>@yield('title')</title>
 	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/estilo.css')}}">
 </head>
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
@@ -42,7 +43,12 @@
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="#"><span class="glyphicon glyphicon-user"></span> cadastrar</a></li>
-			<li><a href="#" data-toggle="modal" data-target="#modalCadastro"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
+			@if(!Auth::check())
+			<li><a href="{{url('user/login')}}" ><span class="glyphicon glyphicon-log-in"></span>Entrar</a></li>
+			@else
+			<li><a href="{{url('logout')}}" ><span class="glyphicon glyphicon-log-in"></span>Sair</a></li>
+
+			@endif
 		</ul>
 	</div>
 </nav>
@@ -65,5 +71,8 @@
 	<script type="text/javascript" src="{{ asset('assets/js/jquery.mask.js') }}"></script>		
 	<script type="text/javascript" src="{{ asset('assets/js/main.js')}}"></script>	
 	@yield('js')
+	
+
+
 </body>
 </html>

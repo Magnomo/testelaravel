@@ -125,4 +125,19 @@ class UsuarioController extends \BaseController {
 		$user->restore();
 		return Redirect::back()->with('success', 'Usuario reativado com sucesso!');
 	}
+	public function login(){
+		$data = ['url'=>'user/login', 'method'=>'POST'];
+		return View::make('user.login' ,compact('data'));
+	}
+	public function validaLogin(){
+		$input = Input::except('_token');
+		if(Auth::attempt($input)) {
+			return Redirect::to('user/create');
+		}
+		return Redirect::back()->with('danger','erro de autenticação');
+	}
+	public function logout(){
+		Auth::logout();
+		return Redirect::to('login');
+	}
 }

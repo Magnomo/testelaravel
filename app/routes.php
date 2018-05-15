@@ -20,16 +20,26 @@ Route::get('/eo', function()
 {
 	return View::make('emails.auth.reminder');
 });
+Route::group(array('before'=>'guest'), function(){
+	Route::get('login', 'UsuarioController@login');
+	Route::post('user/login', 'UsuarioController@validaLogin');
+	
+});
 
 Route::get('insert', 'HomeController@insert');
 Route::get('create', 'HomeController@insert');
-Route::resource('user','UsuarioController');
-Route::resource('categoria','categoriaController');
-Route::resource('produto', 'ProdutoController');
-Route::resource('cliente', 'CLienteController');
-Route::resource('venda', 'VendaController');
-Route::get('produto/{id}/restore', 'ProdutoController@restore');
-Route::get('cliente/{id}/restore', 'ClienteController@restore');
-Route::get('user/{id}/restore', 'UsuarioController@restore');
-Route::get('categoria/{id}/restore', 'CategoriaController@restore');
-Route::get('ajax/venda/{id}', 'VendaController@getPreco');
+
+/*Rota de autenticação*/
+Route::group(array('before' => 'auth'), function(){
+	Route::resource('user','UsuarioController');
+	Route::resource('categoria','categoriaController');
+	Route::resource('produto', 'ProdutoController');
+	Route::resource('cliente', 'CLienteController');
+	Route::resource('venda', 'VendaController');
+	Route::get('produto/{id}/restore', 'ProdutoController@restore');
+	Route::get('cliente/{id}/restore', 'ClienteController@restore');
+	Route::get('user/{id}/restore', 'UsuarioController@restore');
+	Route::get('categoria/{id}/restore', 'CategoriaController@restore');
+	Route::get('ajax/venda/{id}', 'VendaController@getPreco');
+	Route::get('logout', 'UsuarioController@logout');
+});

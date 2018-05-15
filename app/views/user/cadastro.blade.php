@@ -26,8 +26,8 @@
 		<div class="col-sm-4"><label>Senha:</label>
 		</div>
 		<div class="col-sm-12">
-			{{Form::password('senha', array('class'=>'form-control'))}}
-			{{$errors->first('senha')}}
+			{{Form::password('password', array('class'=>'form-control'))}}
+			{{$errors->first('password')}}
 		</div>
 		<div class="col-sm-12"><label>
 			@if(isset($usuario))
@@ -37,8 +37,8 @@
 		@endif</label>
 	</div>
 	<div class="col-sm-12">
-		{{Form::password('senha_confirmation', array('class'=>'form-control'))}}
-		{{$errors->first('cSenha')}}
+		{{Form::password('password_confirmation', array('class'=>'form-control'))}}
+		{{$errors->first('password_confirmation')}}
 	</div>
 	<div class="col-sm-2" >
 		{{Form::submit('Cadastrar!', array('class' => 'btn btn-success'))}}

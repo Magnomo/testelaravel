@@ -3,8 +3,7 @@ class UserValidator{
 
 	public static function rules($id){
 		$rules = ['email'=> 'required|unique:usuarios,email,'.$id,
-		'senha'=> 'required|confirmed|min:6',
-		'senha_confirmation'=> 'required',
+		'password'=> 'required|confirmed|min:6',
 		'nome'=>'required|min:4',
 		'cpf'=>'required|digits:11'];
 		return $rules;
