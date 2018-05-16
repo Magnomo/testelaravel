@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
 
 Route::get('/eo', function()
 {
@@ -23,15 +19,21 @@ Route::get('/eo', function()
 Route::group(array('before'=>'guest'), function(){
 	Route::get('login', 'UsuarioController@login');
 	Route::post('user/login', 'UsuarioController@validaLogin');
+	Route::get('user/inscrever', 'UsuarioController@create');
+	Route::post('user', 'UsuarioController@store');
 	
 });
 
 Route::get('insert', 'HomeController@insert');
 Route::get('create', 'HomeController@insert');
 
-/*Rota de autenticação*/
+/*Rota pós autenticação*/
 Route::group(array('before' => 'auth'), function(){
-	Route::resource('user','UsuarioController');
+	Route::resource('user','UsuarioController',array('except'=>['store']));
+Route::get('/', function()
+{
+	return View::make('user.index');
+});
 	Route::resource('categoria','categoriaController');
 	Route::resource('produto', 'ProdutoController');
 	Route::resource('cliente', 'CLienteController');

@@ -1,7 +1,6 @@
 <?php
 
 class VendaController extends \BaseController {
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -31,14 +30,15 @@ class VendaController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-		 $input = Input::all();
-		 $validator =Validator::make($input, VendaValidator::rules(null),VendaValidator::messages());
-		if($validator->passes()){
+	public function store()	{
+		$input = Input::all();
+		
+		
 			DB::beginTransaction();
+			
 			try{
-				$cliente = Cliente::find($input['cliente']);
+				$cliente = Auth::user()->cliente;
+				
 				$venda = new Venda;
 				$venda->cliente()->associate($cliente)->save();
 				foreach ($input['produto'] as $key => $produto) {
@@ -50,13 +50,13 @@ class VendaController extends \BaseController {
 
 				return $e->getMessage();
 			}
+		
 
 			DB::commit();
 			return Redirect::to('venda')->with("success", "venda realizada com sucesso");
-		}
 		
-		$validator->getMessageBag()->setFormat('<div class="alert alert-danger">:message</div> ');
-		return Redirect::to('venda/create')->withErrors($validator)->withInput();
+		
+		
 	}
 
 	/**

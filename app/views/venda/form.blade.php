@@ -4,8 +4,7 @@
 <div class="form-group">
 	<div class ="form-group">
 		<div class ="input-group">
-			<label>Cliente:</label>
-			{{Form::select('cliente', $data['clientes'],null, array('class'=>'form-control'))}}
+			<label>Cliente: {{Auth::user()->cliente->nome}}</label>
 		</div>
 	</div>
 	<label>Produtos</label>

@@ -1,7 +1,7 @@
 @extends('template.layout')
 @section('content')
 <div class="modal-dialog row" id='form'>
-	<div class='col-sm-8'>
+	<div class='col-sm-12'>
 		<h1 id='demonio'>Entrar</h1><br>
 		<?= Form::open(array('url'=>$data['url'], 'method'=>$data['method']))?>
 
@@ -16,7 +16,7 @@
 
 
 		<div class="login-help">
-			<a href="#">cadastrar</a> - <a href="#">esqueci minha senha</a>
+			<a href="{{url('user/inscrever')}}">cadastrar</a> - <a href="#">esqueci minha senha</a>
 			{{Form::close()}}
 
 		</div>
@@ -25,6 +25,7 @@
 <style>
 #form{
 	background-color:#708090;
+	box-shadow: 2px 3px 1px #000011;
 }
 #demonio{
 	color:white;

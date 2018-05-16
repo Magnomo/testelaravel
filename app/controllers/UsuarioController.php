@@ -33,23 +33,31 @@ class UsuarioController extends \BaseController {
 		//
 		$input = Input::all();
 		$validator = Validator::make($input,UserValidator::rules(null),UserValidator::messages());
-		if($validator->passes()){
+				if($validator->passes()){
 			DB::beginTransaction();
 			try{
+				
 				$usuario = new User;
-				$input['senha']=Hash::make($input['senha']);
+				$input['password']=Hash::make($input['password']);
+
 				$usuario->fill($input)->save();
+
 				$cliente = new Cliente($input);
 				$cliente->usuario()->associate($usuario)->save();
+
 			}catch(\Exception $e){
 				DB::rollback();
 				return $e->getMessage();
 			}
 			DB::commit();
-			return Redirect::to('user/create')->with('success', 'Usuario cadastrado com sucesso');
+			return Redirect::back()->with('success', 'Usuario cadastrado com sucesso');
+			
+
 		}
+
 		$validator->getMessageBag()->setFormat('<div class="alert alert-danger">:message</div> ');
-		return Redirect::to('user/create')->withErrors($validator)->withInput();
+		return Redirect::back()->withErrors($validator)->withInput();
+
 	}
 
 	/**
@@ -88,8 +96,8 @@ class UsuarioController extends \BaseController {
 			DB::beginTransaction();
 			try{
 				$usuario= User::find($id);
-				if(Hash::check($input['senha'],$usuario->senha)){
-					$input['senha']= Hash::make($input['senha_confirmation']);
+				if(Hash::check($input['password'],$usuario->senha)){
+					$input['password']= Hash::make($input['password_confirmation']);
 					$usuario->fill($input)->update();
 					$cliente = new Cliente($input);
 					$cliente->usuario()->associate($usuario)->save();
@@ -130,9 +138,10 @@ class UsuarioController extends \BaseController {
 		return View::make('user.login' ,compact('data'));
 	}
 	public function validaLogin(){
+
 		$input = Input::except('_token');
 		if(Auth::attempt($input)) {
-			return Redirect::to('user/create');
+			return Redirect::to('/');
 		}
 		return Redirect::back()->with('danger','erro de autenticação');
 	}

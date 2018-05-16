@@ -5,7 +5,7 @@ class UserValidator{
 		$rules = ['email'=> 'required|unique:usuarios,email,'.$id,
 		'password'=> 'required|confirmed|min:6',
 		'nome'=>'required|min:4',
-		'cpf'=>'required|digits:11'];
+		'cpf'=>'required|min:11'];
 		return $rules;
 	}
 	public static function messages(){

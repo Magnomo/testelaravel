@@ -27,7 +27,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public $timestamps = true;
 	
 	public function cliente(){
-		return $this->belongsTo('Cliente');
+		return $this->hasOne('Cliente', 'usuario_id');
 	}
 	
 

@@ -6,53 +6,56 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/estilo.css')}}">
 </head>
-<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Inicio</a></li>
-			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Produtos<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="{{url('produto')}}">Listar</a></li>
-					<li><a href="{{url('produto/create')}}">Cadastrar</a></li>
-				</ul>
-			</li>
-			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Clientes<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="{{url('cliente')}}">Listar</a></li>
-					<li><a href="{{url('cliente/create')}}">Cadastrar</a></li>
-				</ul>
-			</li>
-			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="{{url('user')}}">Listar</a></li>
-					<li><a href="{{url('user/create')}}">Cadastrar</a></li>
-				</ul>
-			</li>
-			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vendas<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="{{url('venda')}}">Listar</a></li>
-					<li><a href="{{url('venda/create')}}">Cadastrar</a></li>
-				</ul>
-			</li>
-			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categorias<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="{{url('categoria')}}">Listar</a></li>
-					<li><a href="{{url('categoria/create')}}">Cadastrar</a></li>
-				</ul>
-			</li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span class="glyphicon glyphicon-user"></span> cadastrar</a></li>
-			@if(!Auth::check())
-			<li><a href="{{url('user/login')}}" ><span class="glyphicon glyphicon-log-in"></span>Entrar</a></li>
-			@else
-			<li><a href="{{url('logout')}}" ><span class="glyphicon glyphicon-log-in"></span>Sair</a></li>
 
-			@endif
-		</ul>
-	</div>
-</nav>
 <body data-url="{{ url('/') }}">
+	<div class="row container-fluid">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Inicio</a></li>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Produtos<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="{{url('produto')}}">Listar</a></li>
+						<li><a href="{{url('produto/create')}}">Cadastrar</a></li>
+					</ul>
+				</li>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Clientes<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="{{url('cliente')}}">Listar</a></li>
+						<li><a href="{{url('cliente/create')}}">Cadastrar</a></li>
+					</ul>
+				</li>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="{{url('user')}}">Listar</a></li>
+						<li><a href="{{url('user/create')}}">Cadastrar</a></li>
+					</ul>
+				</li>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vendas<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="{{url('venda')}}">Listar</a></li>
+						<li><a href="{{url('venda/create')}}">Cadastrar</a></li>
+					</ul>
+				</li>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categorias<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="{{url('categoria')}}">Listar</a></li>
+						<li><a href="{{url('categoria/create')}}">Cadastrar</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				@if(!Auth::check())
+				<li><a href="{{url('user/inscrever')}}"><span class="glyphicon glyphicon-user"></span> cadastrar</a></li>
+				<li><a href="{{url('user/login')}}" ><span class="glyphicon glyphicon-log-in"> </span> Entrar</a></li>
+				@else
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo Auth::user()->cliente->nome ?></a></li>
+				<li><a href="{{url('logout')}}" ><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+				@endif
+			</ul>
+		</div>
+	</nav>
+</div>
 	@if(Session::has('error'))
 	<p class="alert alert-info">{{ Session::get('error') }}</p>
 	@endif

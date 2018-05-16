@@ -6,7 +6,7 @@ class ClienteValidator {
 	
 	public static function rules(){
 		$rules =['nome'=>'required|min:4',
-				'cpf'=>'required|digits:11'
+				'cpf'=>'required|min:11'
 		];
 	return $rules;
 	}
