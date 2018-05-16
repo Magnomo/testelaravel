@@ -14,4 +14,7 @@
 	#pagIni{
 		background-color: #696969;
 	}
+	body{
+		background-image: url('assets/img/dark.jpg');
+	}
 </style>

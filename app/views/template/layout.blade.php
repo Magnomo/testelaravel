@@ -11,6 +11,7 @@
 	<div class="row container-fluid">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
+			@if(Auth::check())
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Inicio</a></li>
 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Produtos<span class="caret"></span></a>
@@ -44,6 +45,7 @@
 					</ul>
 				</li>
 			</ul>
+			@endif
 			<ul class="nav navbar-nav navbar-right">
 				@if(!Auth::check())
 				<li><a href="{{url('user/inscrever')}}"><span class="glyphicon glyphicon-user"></span> cadastrar</a></li>
