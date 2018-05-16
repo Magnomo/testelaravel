@@ -1,7 +1,7 @@
 @extends('template.layout')
 @section('content')
 <?= Form::open(array('url'=>$data['url'], 'method'=>$data['method']))?>
-<div class="form-group">
+<div class="form-group" id='formVenda'>
 	<div class ="form-group">
 		<div class ="input-group">
 			<label>Cliente: {{Auth::user()->cliente->nome}}</label>
@@ -35,9 +35,9 @@
 		</div>
 	</div>
 	@endforeach
-</div>
 <button type="button" class="btn btn-success btn_inserir" >Inserir</button>
 {{Form::submit('Salvar',array('class'=>'btn btn-success '))}}
+</div>
 {{Form::close()}}
 @stop
 @section('js')

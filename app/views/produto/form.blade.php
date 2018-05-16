@@ -1,5 +1,6 @@
 @extends('template.layout')
 @section('content')
+<div class="row" id="formProd">
 	<h3 class="text-center">Cadastro de Produto</h3>
 	<?= Form::open(array('url'=>$data['url'], 'method'=>$data['method']))?>
 	<div class="form-group">
@@ -22,10 +23,10 @@
 	</div>
 	{{Form::submit('Cadastrar!', array('class' => 'btn btn-success'))}}
 
+</div>
 
 
-
-	{{Form::close()}}
+{{Form::close()}}
 @stop
 
 @section('js')

@@ -1,6 +1,6 @@
 @extends('template.layout')
 @section('content')
-<div class="modal-dialog row" id='form'>
+<div class="modal-dialog row" id='formLogin'>
 	<div class='col-sm-12'>
 		<h1 id='demonio'>Entrar</h1><br>
 		<?= Form::open(array('url'=>$data['url'], 'method'=>$data['method']))?>
@@ -23,13 +23,7 @@
 	</div>
 </div>
 <style>
-#form{
-	background-color:#708090;
-	box-shadow: 2px 3px 1px #000011;
-}
-#demonio{
-	color:white;
-}
+
 </style>
 
 @stop

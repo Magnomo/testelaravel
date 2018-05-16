@@ -2,7 +2,7 @@
 @section('content')
 <div class= "row">
 	<?= Form::open(array('url'=>$data['url'], 'method'=>$data['method']))?>
-	<div class="col-sm-8"  >
+	<div class="col-sm-8" id='formUser'  >
 		<h3 class="text-center">Formulario de cadastro</h3>
 		<hr>
 		<div class="col-sm-4"><label>Nome:</label>
