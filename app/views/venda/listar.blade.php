@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
 	
-	<table class="table table-bordered text-center">
+	<table class="table table-striped text-center">
 		<thead>
 			<tr>
 				<td>Cliente</td>

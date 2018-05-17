@@ -5,7 +5,7 @@
 		<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
 		<input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
 	</div>
-	<table class=" table table-bordered">
+	<table class=" table table-striped table-dark text-center ">
 		<thead>
 			<tr>
 				<th>Nome</th>

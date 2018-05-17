@@ -4,7 +4,7 @@
 <div class=" row" id='pagIni'>
 
         <h1>Bem vindo, {{Auth::user()->cliente->nome}}</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <p class="lead"></p>
       </div>
 
     </div>
@@ -12,7 +12,8 @@
 @stop
 <style>
 	#pagIni{
-		background-color: #696969;
+		background-color: white;
+		border-radius: 4px;
 	}
 
 </style>
