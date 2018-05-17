@@ -20,18 +20,13 @@
 						<li><a href="{{url('produto/create')}}">Cadastrar</a></li>
 					</ul>
 				</li>
-				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Clientes<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="{{url('cliente')}}">Listar</a></li>
-						<li><a href="{{url('cliente/create')}}">Cadastrar</a></li>
-					</ul>
-				</li>
-				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios<span class="caret"></span></a>
+				
+			<!-- 	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="{{url('user')}}">Listar</a></li>
 						<li><a href="{{url('user/create')}}">Cadastrar</a></li>
 					</ul>
-				</li>
+				</li> -->
 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vendas<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="{{url('venda')}}">Listar</a></li>
