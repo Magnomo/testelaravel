@@ -1,0 +1,11 @@
+As a pattern of system architectural MVC (Model-View-Controller), 
+this folder contains data, logic, rules, relationships between the classes.
+
+In this system have classes with as 'one to many', 'one to one', 'many to many' relationships.
+
+
+For future queries see at the website with php documentation below:
+
+http://php.net/manual/en/
+https://laravel.com/docs/4.2/eloquent
+
